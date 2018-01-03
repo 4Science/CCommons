@@ -2,7 +2,7 @@
 	<parent>
 		<artifactId>commons-cilea-api</artifactId>
 		<groupId>it.cilea</groupId>
-		<version>2.4-SNAPSHOT</version>
+		<version>7.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>it.cilea</groupId>
@@ -20,11 +20,6 @@
 			 <groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 		</dependency>		
-		
-		<dependency>
-		  <groupId>org.hibernate.common</groupId>
-			<artifactId>hibernate-commons-annotations</artifactId>
-		</dependency>	           
 		
 		<dependency>
 			<groupId>commons-logging</groupId>
