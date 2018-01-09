@@ -8,7 +8,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.hibernate.version>5.2.8.Final</org.hibernate.version>
-        <org.spring.version>3.2.16.RELEASE</org.spring.version>
+        <org.spring.version>5.0.2.RELEASE</org.spring.version>
 	</properties>
     
     <scm>
