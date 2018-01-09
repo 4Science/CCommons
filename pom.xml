@@ -9,6 +9,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.hibernate.version>5.2.8.Final</org.hibernate.version>
         <org.spring.version>5.0.2.RELEASE</org.spring.version>
+        <java.version>1.8</java.version>
 	</properties>
     
     <scm>
@@ -20,14 +21,33 @@
     
 	<build>
 		<plugins>
-			<!-- Java 1.5 is our officially endorsed build target platform. -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<!-- Turn on http://errorprone.info -->
+					<compilerId>javac-with-errorprone</compilerId>
+					<forceJavacCompilerUse>true</forceJavacCompilerUse>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
+				<!-- Extra dependencies for http://errorprone.info -->
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.plexus</groupId>
+						<artifactId>plexus-compiler-javac-errorprone</artifactId>
+						<version>2.8.2</version>
+					</dependency>
+					<!-- Override plexus-compiler-javac-errorprone's dependency on Error Prone 
+						with the latest version -->
+					<dependency>
+						<groupId>com.google.errorprone</groupId>
+						<artifactId>error_prone_core</artifactId>
+						<version>2.1.1</version>
+					</dependency>
+				</dependencies>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
