@@ -75,14 +75,12 @@
             <activeByDefault>false</activeByDefault>
          </activation>         
          <modules>
-			<module>commons-cilea-webapi</module>
 			<module>commons-cilea-api</module>            
          </modules>
       </profile>
 	</profiles>
 	
 	<modules>
-		<module>commons-cilea-webapi</module>
 		<module>commons-cilea-api</module>
 	</modules>
 
