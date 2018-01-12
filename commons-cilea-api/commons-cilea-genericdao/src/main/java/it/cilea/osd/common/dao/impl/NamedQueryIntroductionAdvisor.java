@@ -24,13 +24,14 @@
  */
 package it.cilea.osd.common.dao.impl;
 
-import it.cilea.osd.common.dao.NamedQueryExecutor;
-
 import java.util.Arrays;
 
 import org.aopalliance.intercept.MethodInvocation;
+import org.springframework.aop.ClassFilter;
 import org.springframework.aop.IntroductionInterceptor;
 import org.springframework.aop.support.DefaultIntroductionAdvisor;
+
+import it.cilea.osd.common.dao.NamedQueryExecutor;
 
 /**
  * This class is the Advisor responsible to execute the appropriate named query
@@ -41,6 +42,16 @@ import org.springframework.aop.support.DefaultIntroductionAdvisor;
  */
 public class NamedQueryIntroductionAdvisor extends DefaultIntroductionAdvisor {
 
+	
+	@Override
+	public ClassFilter getClassFilter() {
+		return new ClassFilter() {
+			public boolean matches(Class clazz) {
+		        return NamedQueryExecutor.class.isAssignableFrom(clazz);
+			}
+		};
+	}
+	
 	public NamedQueryIntroductionAdvisor() {
 		super(new IntroductionInterceptor() {
             /**
